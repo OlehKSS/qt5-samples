@@ -11,21 +11,39 @@ set(CMAKE_AUTOUIC ON)
 
 find_package(Qt5 COMPONENTS Widgets Charts REQUIRED)
 
-set(sysinfo_HDRS 
-    SysInfoMainWindow.h
-    SysInfoWidget.h
-    CpuWidget.h
-    MemoryWidget.h
-    SysInfo.h
-    SysInfoWindowsImpl.h)
+if (WIN32)
+    set(sysinfo_HDRS 
+        SysInfoMainWindow.h
+        SysInfoWidget.h
+        CpuWidget.h
+        MemoryWidget.h
+        SysInfo.h
+        SysInfoWindowsImpl.h)
 
-set(sysinfo_SRC main.cpp
-    SysInfoMainWindow.cpp
-    SysInfoWidget.cpp
-    CpuWidget.cpp
-    MemoryWidget.cpp
-    SysInfo.cpp
-    SysInfoWindowsImpl.cpp)
+    set(sysinfo_SRC main.cpp
+        SysInfoMainWindow.cpp
+        SysInfoWidget.cpp
+        CpuWidget.cpp
+        MemoryWidget.cpp
+        SysInfo.cpp
+        SysInfoWindowsImpl.cpp)
+else()
+    set(sysinfo_HDRS 
+        SysInfoMainWindow.h
+        SysInfoWidget.h
+        CpuWidget.h
+        MemoryWidget.h
+        SysInfo.h
+        SysInfoLinuxImpl.h)
+    
+    set(sysinfo_SRC main.cpp
+        SysInfoMainWindow.cpp
+        SysInfoWidget.cpp
+        CpuWidget.cpp
+        MemoryWidget.cpp
+        SysInfo.cpp
+        SysInfoLinuxImpl.cpp)
+endif()
 
 set(sysinfo_UI SysInfoMain.ui)
 
