@@ -14,7 +14,7 @@ SysInfo& SysInfo::instance()
 #ifdef Q_OS_WIN
 	static SysInfoWindowsImpl singleton;
 #elif defined(Q_OS_LINUX)
-	static SysInfoWindowsImpl singleton;
+	static SysInfoLinuxImpl singleton;
 #endif
 	return singleton;
 }
