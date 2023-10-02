@@ -27,6 +27,7 @@ add_library(core
     ${core_SRC}
 )
 
+target_include_directories(core PUBLIC ${CMAKE_CURRENT_LIST_DIR})
 target_compile_definitions(core PUBLIC GALLERY_CORE_LIBRARY)
 target_link_libraries(core Qt5::Sql)
 

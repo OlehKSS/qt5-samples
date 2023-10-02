@@ -9,7 +9,7 @@ DatabaseManager& DatabaseManager::instance()
 }
 
 DatabaseManager::DatabaseManager(const QString& path)
-	: mDatabase(std::make_unique<QSqlDatabase>(QSqlDatabase::addDatabase("QSQLITE")))
+	: mDatabase(new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE")))
 	, albumDao(*mDatabase)
 	, pictureDao(*mDatabase)
 {

@@ -90,3 +90,13 @@ QHash<int, QByteArray> AlbumModel::roleNames() const
 	roles[static_cast<int>(NameRole)] = "name";
 	return roles;
 }
+
+bool AlbumModel::isIndexValid(const QModelIndex& index) const
+{
+	if (index.row() < 0
+		|| index.row() >= rowCount()
+		|| !index.isValid()) {
+		return false;
+	}
+	return true;
+}

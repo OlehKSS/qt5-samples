@@ -37,3 +37,7 @@ build
 
 # miscellaneous
 env.txt
+env.ps1
+
+# IDE
+settings.json

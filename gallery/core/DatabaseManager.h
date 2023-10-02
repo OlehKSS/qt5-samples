@@ -11,6 +11,8 @@ const QString DATABASE_FILENAME = "gallery.db";
 
 class DatabaseManager
 {
+	std::unique_ptr<QSqlDatabase> mDatabase;
+
 public:
 	static DatabaseManager& instance();
 	~DatabaseManager();
@@ -20,10 +22,6 @@ public:
 
 protected:
 	DatabaseManager(const QString& path = DATABASE_FILENAME);
-	//DatabaseManager& operator=(const DatabaseManager& rhs);
-
-private:
-	std::unique_ptr<QSqlDatabase> mDatabase;
 };
 
 // page 104
